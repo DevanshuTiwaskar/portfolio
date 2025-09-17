@@ -185,19 +185,19 @@ export default function App() {
         { 
           name: "Cravely", 
           type: "Food Delivery • 2024", 
-          img: "cravely.png",
+          img: "https://plus.unsplash.com/premium_photo-1743169049814-4f54dbc53b54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGZvb2QlMjBkZWxpdmVyeSUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D",
           link: "#" 
         },
         { 
           name: "Visionix", 
           type: "AI Chat App • 2024", 
-          img: "visionix.png",
+          img: "https://plus.unsplash.com/premium_photo-1677252438426-595a3a9d5e11?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           link: "#" 
         },
         { 
           name: "Move", 
           type: "React App • 2024", 
-          img: "move.png",
+          img: "https://images.unsplash.com/photo-1634155617372-69e7865ff131?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           link: "#" 
         }
       ].map((project, idx) => (
