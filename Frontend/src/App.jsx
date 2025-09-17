@@ -33,7 +33,7 @@ export default function App() {
     const payload = Object.fromEntries(data.entries());
 
     try {
-      const res = await fetch("http://localhost:3000/api/contact", {
+      const res = await fetch("https://portfolio-ehaq.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -174,45 +174,62 @@ export default function App() {
           </div>
         </section>
 {/* PROJECTS */}
-        <section id="work" className="relative py-24 px-6 bg-gradient-to-b from-gray-950 via-gray-900/80 to-gray-950">
-          <div className="max-w-6xl mx-auto text-center">
-            <h3 className="text-4xl font-extrabold tracking-tight mb-16 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Selected Projects
-            </h3>
+       <section id="work" className="relative py-24 px-6 bg-gradient-to-b from-gray-950 via-gray-900/80 to-gray-950">
+  <div className="max-w-6xl mx-auto text-center">
+    <h3 className="text-4xl font-extrabold tracking-tight mb-16 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+      Selected Projects
+    </h3>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {/* Repeatable Project Cards */}
-              {["THR PLUG", "IXPERIENCE", "HUDU"].map((project, idx) => (
-                <article
-                  key={idx}
-                  className="group relative rounded-2xl overflow-hidden bg-gray-800/40 backdrop-blur-lg border border-gray-700/50 shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-[1.03]"
-                >
-                  <img
-                    src={["the-plug-ckay.webp","titanium.webp","hudu.png"][idx]}
-                    alt={project}
-                    className="w-full h-56 object-cover group-hover:opacity-90 transition duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-70 transition"></div>
-                  <div className="relative p-6 text-left">
-                    <h4 className="text-xl font-semibold text-white">{project}</h4>
-                    <p className="text-sm text-gray-400 mb-3">
-                      {["Product • 2022","UX • 2022","Product • 2022"][idx]}
-                    </p>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-1"
-                    >
-                      View case study
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {[
+        { 
+          name: "Cravely", 
+          type: "Food Delivery • 2024", 
+          img: "cravely.png",
+          link: "#" 
+        },
+        { 
+          name: "Visionix", 
+          type: "AI Chat App • 2024", 
+          img: "visionix.png",
+          link: "#" 
+        },
+        { 
+          name: "Move", 
+          type: "React App • 2024", 
+          img: "move.png",
+          link: "#" 
+        }
+      ].map((project, idx) => (
+        <article
+          key={idx}
+          className="group relative rounded-2xl overflow-hidden bg-gray-800/40 backdrop-blur-lg border border-gray-700/50 shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-[1.03]"
+        >
+          <img
+            src={project.img}
+            alt={project.name}
+            className="w-full h-56 object-cover group-hover:opacity-90 transition duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-70 transition"></div>
+          <div className="relative p-6 text-left">
+            <h4 className="text-xl font-semibold text-white">{project.name}</h4>
+            <p className="text-sm text-gray-400 mb-3">{project.type}</p>
+            <a
+              href={project.link}
+              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-1"
+            >
+              View case study
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
-        </section>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
 
         {/* ABOUT */}
         <section id="about" className="py-20 px-6">
