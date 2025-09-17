@@ -8,7 +8,9 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://portfolio-xi-hazel-0kejq0gg2k.vercel.app/',
+}));
 app.use(bodyParser.json());
 
 // MongoDB connection
