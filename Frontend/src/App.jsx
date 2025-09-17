@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Lenis from "@studio-freight/lenis";
-import 'remixicon/fonts/remixicon.css';
-
+import "remixicon/fonts/remixicon.css";
 
 export default function App() {
   const formRef = useRef();
@@ -33,11 +32,14 @@ export default function App() {
     const payload = Object.fromEntries(data.entries());
 
     try {
-      const res = await fetch("https://portfolio-ehaq.onrender.com/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        "https://portfolio-ehaq.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
       const json = await res.json();
       setStatus(json.message || "Message sent!");
       formRef.current.reset();
@@ -54,50 +56,74 @@ export default function App() {
   return (
     <div className="bg-gray-950 text-gray-100 font-inter tracking-tight overflow-x-hidden">
       {/* HEADER */}
-          <header className="sticky top-0 z-50 backdrop-blur-xl bg-gray-950/70 border-b border-gray-800/60">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <h1 className="text-xl font-bold tracking-tight">
-          Hi, I’m <span className="text-blue-500">Devanshu</span>{" "}
-          <span className="inline-block animate-wave">👋</span>
-        </h1>
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-gray-950/70 border-b border-gray-800/60">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+          <h1 className="text-xl font-bold tracking-tight">
+            Hi, I’m <span className="text-blue-500">Devanshu</span>{" "}
+            <span className="inline-block animate-wave">👋</span>
+          </h1>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="#work" className="hover:text-blue-400">Work</a>
-          <a href="#about" className="hover:text-blue-400">About</a>
-          <a href="#contact" className="hover:text-blue-400">Contact</a>
-          <a
-            href="#"
-            className="px-4 py-1.5 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition shadow-md shadow-blue-600/30"
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="#work" className="hover:text-blue-400">
+              Work
+            </a>
+            <a href="#about" className="hover:text-blue-400">
+              About
+            </a>
+            <a href="#contact" className="hover:text-blue-400">
+              Contact
+            </a>
+            <a
+              href="#"
+              className="px-4 py-1.5 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition shadow-md shadow-blue-600/30"
+            >
+              Resume
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMobileOpen(!mobileOpen)}
           >
-            Resume
-          </a>
-        </nav>
+            <i className="ri-menu-line"></i>
+          </button>
+        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <i className="ri-menu-line"></i>
-        </button>
-      </div>
-
-      {/* Mobile Nav */}
-      {mobileOpen && (
-        <nav className="flex flex-col bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 md:hidden px-6 py-4 space-y-4 text-sm font-medium">
-          <a href="#work" onClick={handleAnchorClick} className="hover:text-blue-400">Work</a>
-          <a href="#about" onClick={handleAnchorClick} className="hover:text-blue-400">About</a>
-          <a href="#contact" onClick={handleAnchorClick} className="hover:text-blue-400">Contact</a>
-          <a
-            href="#"
-            className="px-4 py-2 block rounded-md bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition"
-          >
-            Resume
-          </a>
-        </nav>
-      )}
-    </header>
+        {/* Mobile Nav */}
+        {mobileOpen && (
+          <nav className="flex flex-col bg-gray-900/95 backdrop-blur-lg border-t border-gray-800 md:hidden px-6 py-4 space-y-4 text-sm font-medium">
+            <a
+              href="#work"
+              onClick={handleAnchorClick}
+              className="hover:text-blue-400"
+            >
+              Work
+            </a>
+            <a
+              href="#about"
+              onClick={handleAnchorClick}
+              className="hover:text-blue-400"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              onClick={handleAnchorClick}
+              className="hover:text-blue-400"
+            >
+              Contact
+            </a>
+            <a
+              href="#"
+              className="px-4 py-2 block rounded-md bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition"
+            >
+              Resume
+            </a>
+          </nav>
+        )}
+      </header>
       <main>
         {/* HERO */}
         <section
@@ -130,22 +156,40 @@ export default function App() {
               </h2>
               <p className="text-gray-400 mb-10 max-w-lg mx-auto lg:mx-0 animate-fadeIn delay-500 text-lg">
                 Crafting futuristic web apps with{" "}
-                <span className="text-blue-400 font-semibold animate-pulse">Node.js</span>,{" "}
-                <span className="text-purple-400 font-semibold animate-pulse">React</span>, and{" "}
-                <span className="text-pink-400 font-semibold animate-pulse">MongoDB</span>.
+                <span className="text-blue-400 font-semibold animate-pulse">
+                  Node.js
+                </span>
+                ,{" "}
+                <span className="text-purple-400 font-semibold animate-pulse">
+                  React
+                </span>
+                , and{" "}
+                <span className="text-pink-400 font-semibold animate-pulse">
+                  MongoDB
+                </span>
+                .
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
-                <a href="#contact" className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:shadow-[0_0_50px_rgba(59,130,246,0.8)] transition-transform transform hover:scale-110">
+                <a
+                  href="#contact"
+                  className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white shadow-[0_0_25px_rgba(59,130,246,0.5)] hover:shadow-[0_0_50px_rgba(59,130,246,0.8)] transition-transform transform hover:scale-110"
+                >
                   Hire Me
                 </a>
-                <a href="#work" className="px-6 py-3 rounded-lg font-medium transition border border-blue-500/50 hover:border-blue-400 hover:text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:scale-105 transform">
+                <a
+                  href="#work"
+                  className="px-6 py-3 rounded-lg font-medium transition border border-blue-500/50 hover:border-blue-400 hover:text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:scale-105 transform"
+                >
                   See Work
                 </a>
               </div>
 
               <ul className="space-y-2 text-sm text-gray-400 animate-fadeIn delay-700">
-                <li>🚀 Learning <strong className="text-gray-200">MERN Stack</strong></li>
+                <li>
+                  🚀 Learning{" "}
+                  <strong className="text-gray-200">MERN Stack</strong>
+                </li>
                 <li>💡 Building projects to sharpen my skills</li>
                 <li>✅ Open to internships & freelance work</li>
               </ul>
@@ -162,88 +206,116 @@ export default function App() {
                   />
                 </div>
                 <p className="text-gray-200 text-lg">Available</p>
-                <p className="text-sm font-medium text-blue-400">Remote · Contract</p>
+                <p className="text-sm font-medium text-blue-400">
+                  Remote · Contract
+                </p>
               </div>
             </div>
           </div>
 
           {/* Scroll Down Indicator */}
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce text-2xl">
-             <i className="ri-arrow-down-line"></i>
-
+            <i className="ri-arrow-down-line"></i>
           </div>
         </section>
-{/* PROJECTS */}
-       <section id="work" className="relative py-24 px-6 bg-gradient-to-b from-gray-950 via-gray-900/80 to-gray-950">
-  <div className="max-w-6xl mx-auto text-center">
-    <h3 className="text-4xl font-extrabold tracking-tight mb-16 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-      Selected Projects
-    </h3>
-
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      {[
-        { 
-          name: "Cravely", 
-          type: "Food Delivery • 2024", 
-          img: "https://plus.unsplash.com/premium_photo-1743169049814-4f54dbc53b54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGZvb2QlMjBkZWxpdmVyeSUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D",
-          link: "#" 
-        },
-        { 
-          name: "Visionix", 
-          type: "AI Chat App • 2024", 
-          img: "https://plus.unsplash.com/premium_photo-1677252438426-595a3a9d5e11?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          link: "#" 
-        },
-        { 
-          name: "Move", 
-          type: "React App • 2024", 
-          img: "https://images.unsplash.com/photo-1634155617372-69e7865ff131?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          link: "#" 
-        }
-      ].map((project, idx) => (
-        <article
-          key={idx}
-          className="group relative rounded-2xl overflow-hidden bg-gray-800/40 backdrop-blur-lg border border-gray-700/50 shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-[1.03]"
+        {/* PROJECTS */}
+        <section
+          id="work"
+          className="relative py-24 px-6 bg-gradient-to-b from-gray-950 via-gray-900/80 to-gray-950"
         >
-          <img
-            src={project.img}
-            alt={project.name}
-            className="w-full h-56 object-cover group-hover:opacity-90 transition duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-70 transition"></div>
-          <div className="relative p-6 text-left">
-            <h4 className="text-xl font-semibold text-white">{project.name}</h4>
-            <p className="text-sm text-gray-400 mb-3">{project.type}</p>
-            <a
-              href={project.link}
-              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-1"
-            >
-              View case study
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-4xl font-extrabold tracking-tight mb-16 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Selected Projects
+            </h3>
 
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {[
+                {
+                  name: "Cravely",
+                  type: "Food Delivery • 2024",
+                  img: "https://plus.unsplash.com/premium_photo-1743169049814-4f54dbc53b54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGZvb2QlMjBkZWxpdmVyeSUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D",
+                  link: "https://github.com/DevanshuTiwaskar/Food-deliveryc",
+                },
+                {
+                  name: "Visionix",
+                  type: "AI Chat App • 2024",
+                  img: "https://plus.unsplash.com/premium_photo-1677252438426-595a3a9d5e11?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  link: "https://github.com/DevanshuTiwaskar/Food-delivery",
+                },
+                {
+                  name: "Move",
+                  type: "React App • 2024",
+                  img: "https://images.unsplash.com/photo-1634155617372-69e7865ff131?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  link: "https://github.com/DevanshuTiwaskar/MOVIES_APP_react",
+                },
+              ].map((project, idx) => (
+                <article
+                  key={idx}
+                  className="group relative rounded-2xl overflow-hidden bg-gray-800/40 backdrop-blur-lg border border-gray-700/50 shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-[1.03]"
+                >
+                  <img
+                    src={project.img}
+                    alt={project.name}
+                    className="w-full h-56 object-cover group-hover:opacity-90 transition duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-70 transition"></div>
+                  <div className="relative p-6 text-left">
+                    <h4 className="text-xl font-semibold text-white">
+                      {project.name}
+                    </h4>
+                    <p className="text-sm text-gray-400 mb-3">{project.type}</p>
+                    <a
+                      href={project.link}
+                      className="text-sm font-medium text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-1"
+                    >
+                      View case study
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ABOUT */}
         <section id="about" className="py-20 px-6">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div className="w-full h-80 bg-gradient-to-tr from-purple-500/30 to-blue-500/20 rounded-3xl"></div>
+            <div className="w-full h-80 bg-gradient-to-tr from-purple-500/30 to-blue-500/20 rounded-3xl overflow-hidden">
+              <img
+                src="/Screenshot 2025-09-18 032304.png"
+                alt="Project Screenshot"
+                className="w-full h-full object-cover rounded-3xl"
+              />
+            </div>
+
             <div>
               <h3 className="text-3xl font-bold mb-6">About Me</h3>
               <p className="text-gray-400 mb-4">
-                I'm a product designer turned full-stack developer. I build product-led apps that solve real problems. Outside work I love gaming and bingeing sci-fi.
+                I'm a product designer turned full-stack developer. I build
+                product-led apps that solve real problems. Outside work I love
+                gaming and bingeing sci-fi.
               </p>
               <p className="text-gray-400 mb-6">
-                Design philosophy: make it visually appealing, functional, and delightful. I enjoy working with small teams and startups.
+                Design philosophy: make it visually appealing, functional, and
+                delightful. I enjoy working with small teams and startups.
               </p>
-              <a href="#contact" className="px-6 py-3 border border-blue-500 text-blue-400 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition">
+              <a
+                href="#contact"
+                className="px-6 py-3 border border-blue-500 text-blue-400 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition"
+              >
                 Let’s talk
               </a>
             </div>
@@ -251,25 +323,35 @@ export default function App() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="relative py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-950">
+        <section
+          id="contact"
+          className="relative py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-950"
+        >
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
             {/* Left */}
             <div>
               <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
               <p className="text-gray-400 mb-8">
-                Have a project in mind or just want to say hello? Fill out the form and I’ll get back to you as soon as possible.
+                Have a project in mind or just want to say hello? Fill out the
+                form and I’ll get back to you as soon as possible.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800">📍</div>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800">
+                    📍
+                  </div>
                   <p className="text-gray-300">Nagpur, Maharashtra</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800">📧</div>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800">
+                    📧
+                  </div>
                   <p className="text-gray-300">devanshutiwaskar@gmail.com</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800">📞</div>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800">
+                    📞
+                  </div>
                   <p className="text-gray-300">+91 820 832 4965</p>
                 </div>
               </div>
@@ -279,18 +361,44 @@ export default function App() {
             <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg">
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block mb-2 text-sm font-medium">Your Name</label>
-                  <input type="text" name="name" placeholder="John Doe" className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"/>
+                  <label className="block mb-2 text-sm font-medium">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium">Email</label>
-                  <input type="email" name="email" placeholder="you@example.com" className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"/>
+                  <label className="block mb-2 text-sm font-medium">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium">Message</label>
-                  <textarea name="message" rows="4" placeholder="Write your message..." className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"/>
+                  <label className="block mb-2 text-sm font-medium">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Write your message..."
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
                 </div>
-                <button type="submit" className="w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-500 transition font-medium">Send Message</button>
+                <button
+                  type="submit"
+                  className="w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-500 transition font-medium"
+                >
+                  Send Message
+                </button>
                 <p className="text-sm text-gray-400 mt-2">{status}</p>
               </form>
             </div>
@@ -298,18 +406,28 @@ export default function App() {
         </section>
       </main>
 
- {/* FOOTER */}
-        <footer className="border-t border-gray-800 py-6 px-6 text-sm">
-          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
-            <div>© {new Date().getFullYear()} Devanshu — Full Stack Developer</div>
-            <div className="flex gap-4 text-gray-400">
-              <a href="#" className="hover:text-blue-400">Dribbble</a>
-              <a href="#" className="hover:text-blue-400">Instagram</a>
-              <a href="#" className="hover:text-blue-400">LinkedIn</a>
-              <a href="#" className="hover:text-blue-400">Twitter</a>
-            </div>
+      {/* FOOTER */}
+      <footer className="border-t border-gray-800 py-6 px-6 text-sm">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
+          <div>
+            © {new Date().getFullYear()} Devanshu — Full Stack Developer
           </div>
-        </footer>
+          <div className="flex gap-4 text-gray-400">
+            <a href="#" className="hover:text-blue-400">
+              Dribbble
+            </a>
+            <a href="#" className="hover:text-blue-400">
+              Instagram
+            </a>
+            <a href="#" className="hover:text-blue-400">
+              LinkedIn
+            </a>
+            <a href="#" className="hover:text-blue-400">
+              Twitter
+            </a>
+          </div>
+        </div>
+      </footer>
 
       {/* Custom Animations */}
       <style>{`
@@ -329,6 +447,3 @@ export default function App() {
     </div>
   );
 }
-
-
-        
