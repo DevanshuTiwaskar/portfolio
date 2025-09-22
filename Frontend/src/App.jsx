@@ -301,24 +301,22 @@ export default function App() {
               />
             </div>
 
-            <div>
-              <h3 className="text-3xl font-bold mb-6">About Me</h3>
-              <p className="text-gray-400 mb-4">
-                I'm a product designer turned full-stack developer. I build
-                product-led apps that solve real problems. Outside work I love
-                gaming and bingeing sci-fi.
-              </p>
-              <p className="text-gray-400 mb-6">
-                Design philosophy: make it visually appealing, functional, and
-                delightful. I enjoy working with small teams and startups.
-              </p>
-              <a
-                href="#contact"
-                className="px-6 py-3 border border-blue-500 text-blue-400 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition"
-              >
-                Let’s talk
-              </a>
-            </div>
+          <div>
+  <h3 className="text-3xl font-bold mb-6">About Me</h3>
+  <p className="text-gray-400 mb-4">
+    I'm a full-stack developer skilled in React.js, Node.js, Express.js, and MongoDB. I build scalable, real-time web applications with clean and maintainable code. I enjoy developing responsive user interfaces and robust backend systems.
+  </p>
+  <p className="text-gray-400 mb-6">
+    My approach: write efficient, maintainable code, optimize performance, and deliver projects on time. I thrive working with small teams and contributing to challenging web development projects.
+  </p>
+  <a
+    href="#contact"
+    className="px-6 py-3 border border-blue-500 text-blue-400 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition"
+  >
+    Let’s talk
+  </a>
+</div>
+
           </div>
         </section>
 
