@@ -511,13 +511,13 @@ const handleSubmit = useCallback(async (e) => {
 
               {/* Subtitle */}
               <p
-                className={`text-lg md:text-xl text-${DESIGN_TOKENS.subtle} max-w-3xl mx-auto lg:mx-0 leading-relaxed`}
-              >
-                Crafting **scalable, real-time** applications with the MERN
-                stack. Specialized in **microservices architecture**, **AWS
-                cloud infrastructure**, and **AI integration** using
-                Langchain.js.
-              </p>
+  className={`text-lg md:text-xl text-${DESIGN_TOKENS.subtle} max-w-3xl mx-auto lg:mx-0 leading-relaxed`}
+>
+  Crafting <strong>scalable, real-time</strong> applications with the MERN
+  stack. Specialized in <strong>microservices architecture</strong>, <strong>AWS
+  cloud infrastructure</strong>, and <strong>AI integration</strong> using
+  Langchain.js.
+</p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-4">
