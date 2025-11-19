@@ -348,6 +348,7 @@ const handleSubmit = useCallback(async (e) => {
         });
       }
     } catch (err) {
+      console.log(err)
       setFormStatus({
         message: "Connection failed. Please check your network or email directly.",
         type: "error",
